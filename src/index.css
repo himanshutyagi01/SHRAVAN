@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ─── Global Base Styles ─────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #F8F7FF;
+  color: #1a1a2e;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Large text for elderly accessibility ───────────────────────────── */
+:root {
+  --text-base: 1.125rem;   /* 18px — default body text */
+  --text-lg: 1.25rem;      /* 20px */
+  --text-xl: 1.5rem;       /* 24px */
+  --text-2xl: 1.875rem;    /* 30px */
+  --text-3xl: 2.25rem;     /* 36px */
+  --radius: 0.75rem;
+  --shadow: 0 4px 20px rgba(79, 70, 229, 0.08);
+}
+
+/* ─── Scrollbar Styling ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* ─── Focus Styles (Accessibility) ──────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid #4F46E5;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 12px rgba(79, 70, 229, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+.animate-fade-in   { animation: fadeIn 0.4s ease-out forwards; }
+.animate-slide-in  { animation: slideIn 0.4s ease-out forwards; }
+.animate-pulse-ring { animation: pulse-ring 2s infinite; }
+.animate-spin-slow { animation: spin 1s linear infinite; }
+.animate-bounce-soft { animation: bounce-soft 2s ease-in-out infinite; }
+
+/* ─── Voice Button Wave Effect ──────────────────────────────────────── */
+.voice-recording {
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+
+/* ─── Card styles ────────────────────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid #e8e4ff;
+}
+
+/* ─── Medicine card color tags ───────────────────────────────────────── */
+.medicine-card {
+  border-left: 5px solid var(--card-color, #4F46E5);
+}
+
+/* ─── Transition helpers ─────────────────────────────────────────────── */
+.transition-base {
+  transition: all 0.2s ease;
+}
+
+/* ─── Toast customization ────────────────────────────────────────────── */
+.toast-custom {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
